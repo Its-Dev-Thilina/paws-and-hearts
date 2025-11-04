@@ -29,19 +29,23 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php $index = 0 ?>
+                            <?php foreach($adopters as $adopter): ?>
+
                             <tr>
-                                <td>1</td>
-                                <td>John Miller</td>
-                                <td>Male</td>
-                                <td>1985-07-09</td>
+                                <td><?= $index + 1 ?></td>
+                                <td><?= $adopter['name'] ?></td>
+                                <td><?= $adopter['gender'] ?></td>
+                                <td><?= $adopter['dob'] ?></td>
                                 <td>
-                                    <a href="mailto:john.miller@email.com">john.miller@email.com</a>
+                                    <?= $adopter['contact'] ?>
                                 </td>
-                                <td>500 Cedar St, Dallas, TX 75201</td>
-                                <td>Engineer</td>
-                                <td>✅</td>
-                                <td>Dog</td>
-                                <td>2023-05-14</td>
+                                <td><?= $adopter['address'] ?></td>
+                                <td><?= $adopter['occupation'] ?></td>
+                                <td><?= $adopter['is_other_pets'] ?></td>
+                                <td> <?= $adopter['pet_type'] ?> </td>
+                                <td><?= $adopter['register_date'] ?></td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-primary">
                                         <i class="bi bi-pencil-square"></i>
@@ -51,28 +55,10 @@
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Ana Lopez</td>
-                                <td>Female</td>
-                                <td>1992-11-22</td>
-                                <td>
-                                    <a href="mailto:ana.lopez@gmail.com">ana.lopez@gmail.com</a>
-                                </td>
-                                <td>89 Lakeview Blvd, Orlando, FL 32801</td>
-                                <td>Nurse</td>
-                                <td>❌</td>
-                                <td>Cat</td>
-                                <td>2024-01-08</td>
-                                <td>
-                                    <a href="#" class="btn btn-sm btn-primary">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            
+                            <?php $index++ ?>
+                            <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </div>

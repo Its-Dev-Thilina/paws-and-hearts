@@ -28,18 +28,22 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php $index = 0; ?>
+                            <?php foreach($caretakers as $caretaker): ?>
+
                             <tr>
-                                <td>1</td>
-                                <td>Sarah Johnson</td>
-                                <td>Female</td>
-                                <td>1990-03-15</td>
+                                <td><?= $index+1 ?></td>
+                                <td><?= $caretaker['name'] ?></td>
+                                <td><?= $caretaker['gender'] ?></td>
+                                <td><?= $caretaker['dob'] ?></td>
                                 <td>
-                                    +1 555-234-8765
+                                    <?= $caretaker['contact'] ?>
                                 </td>
-                                <td>123 Maple St, Austin, TX 78701</td>
-                                <td>5</td>
-                                <td>Dogs</td>
-                                <td>2021-06-10</td>
+                                <td><?= $caretaker['address'] ?></td>
+                                <td><?= $caretaker['experience'] ?></td>
+                                <td><?= $caretaker['special'] ?></td>
+                                <td><?= $caretaker['join_date'] ?></td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-primary">
                                         <i class="bi bi-pencil-square"></i>
@@ -49,27 +53,9 @@
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Michael Lee</td>
-                                <td>Male</td>
-                                <td>1987-09-02</td>
-                                <td>
-                                    <a href="mailto:mlee@petcare.org">mlee@petcare.org</a>
-                                </td>
-                                <td>45 Elm Ave, Denver, CO 80203</td>
-                                <td>8</td>
-                                <td>Cats</td>
-                                <td>2020-01-22</td>
-                                <td>
-                                     <a href="#" class="btn btn-sm btn-primary">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </a>
-                                </td>
-                            </tr>
+
+                            <?php $index++; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

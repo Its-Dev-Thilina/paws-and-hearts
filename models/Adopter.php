@@ -2,8 +2,8 @@
 
 include_once BASE_PATH.'core/Model.php';
 
-class Caretaker extends Model{
-    protected $table = "caretaker";
+class Adopter extends Model{
+    protected $table = "adopter";
 
     public function __construct($db) {
         $this->db = $db;
@@ -13,10 +13,10 @@ class Caretaker extends Model{
         $data = [];
 
         $query = "
-        SELECT caretaker.id,caretaker.name,gender.gender,caretaker.dob,caretaker.contact,caretaker.address,caretaker.experience,caretaker.special,caretaker.join_date
-        FROM caretaker
+        SELECT adopter.id,adopter.name,adopter.pet_type,gender.gender,adopter.dob,adopter.contact,adopter.address,adopter.occupation,adopter.is_other_pets,adopter.register_date
+        FROM adopter
         INNER JOIN gender
-        ON caretaker.gender = gender.id";
+        ON adopter.gender = gender.id";
 
         $data = $this->db->get_connection()->query($query)->fetch_all(MYSQLI_ASSOC);
 
