@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include_once __DIR__.'/../config.php';
 include_once BASE_PATH.'/core/helpers.php';
 

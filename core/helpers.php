@@ -15,3 +15,17 @@ if(!function_exists('dd')) {
         exit;
     }
 }
+
+if(!function_exists('has_session')) {
+    function has_session($var) {
+        return isset($_SESSION[$var]);
+    }
+}
+
+if(!function_exists('check_auth')) {
+    function check_auth($redirect) {
+        if(!has_session('logged_in')) {
+            $redirect();
+        }
+    }
+}
