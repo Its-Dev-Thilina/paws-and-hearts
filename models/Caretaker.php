@@ -14,7 +14,7 @@ class Caretaker extends Model{
 
         $query = "
         SELECT caretaker.id,caretaker.name,gender.gender,caretaker.dob,caretaker.contact,caretaker.address,caretaker.experience,caretaker.special,caretaker.join_date
-        FROM caretaker
+        FROM $this->table
         INNER JOIN gender
         ON caretaker.gender = gender.id";
 

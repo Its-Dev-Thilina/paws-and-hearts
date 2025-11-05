@@ -17,10 +17,14 @@ include_once BASE_PATH.'controllers/PetController.php';
 include_once BASE_PATH.'controllers/CaretakerController.php';
 include_once BASE_PATH.'controllers/AdopterController.php';
 include_once BASE_PATH.'controllers/AdoptionController.php';
+include_once BASE_PATH.'controllers/AuthController.php';
 
 #config - Routes
 $routes = [
     ''       => [DashboardController::class, 'index'],
+
+    'login' => [AuthController::class, 'login'],
+    'logout' => [AuthController::class, 'logout'],
     
     'pets'  => [PetController::class, 'index'],
     'pets/new'  => [PetController::class, 'create'],

@@ -10,6 +10,9 @@ class CaretakerController extends Controller {
     }
 
     public function index() {
+        check_auth(fn () => $this->redirect('/login'));
+
+
         $caretaker_model = new Caretaker(self::$db);
         $caretakers = $caretaker_model->get_all();
 
@@ -21,6 +24,8 @@ class CaretakerController extends Controller {
     }
 
     public function create() {
+        check_auth(fn () => $this->redirect('/login'));
+
         $this->view('caretakers/create.php');
     }
 }

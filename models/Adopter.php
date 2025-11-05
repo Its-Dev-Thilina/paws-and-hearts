@@ -14,7 +14,7 @@ class Adopter extends Model{
 
         $query = "
         SELECT adopter.id,adopter.name,adopter.pet_type,gender.gender,adopter.dob,adopter.contact,adopter.address,adopter.occupation,adopter.is_other_pets,adopter.register_date
-        FROM adopter
+        FROM $this->table
         INNER JOIN gender
         ON adopter.gender = gender.id";
 
