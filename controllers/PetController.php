@@ -1,5 +1,4 @@
 <?php
-
 include_once BASE_PATH.'core/Controller.php';
 include_once BASE_PATH.'models/PetSpecie.php';
 include_once BASE_PATH.'models/Pet.php';
@@ -11,9 +10,6 @@ class PetController extends Controller {
     }
 
     public function index() {
-        check_auth(fn () => $this->redirect('/login'));
-
-
         $pet_specie_model = new PetSpecie(self::$db);
         $pet_species = $pet_specie_model->get_all();
         
@@ -29,10 +25,33 @@ class PetController extends Controller {
     }
 
     public function create() {
-        check_auth(fn () => $this->redirect('/login'));
-
         if(isset($_POST['submit'])) {
-            $id = $_POST['id'];
+
+            $name = $_POST['name'];
+            $specie = $_POST['specie'];
+            $breed = $_POST['breed'];
+            $caretaker = $_POST['caretaker'];
+            $date_of_birth = $_POST['dob'];
+            $gender = $_POST['gender'];
+            $note = $_POST['note'];
+            $status = 1;
+
+            $fields = [
+                "name" => $name,
+                "specie" => $specie,
+                "breed" => $breed,
+                "dob" => $date_of_birth,
+                "gender" => $gender,
+                "caretaker" => $caretaker,
+                "status" => $status,
+                "note" => $note
+            ];
+
+            $pet_model = new Pet(self::$db);
+            $pet_model->insert($fields);
+
+            $this->redirect('/pets');
+
         }
         
         $this->view('pets/create.php');
@@ -49,8 +68,6 @@ class PetController extends Controller {
     }
 
     public function delete() {
-        check_auth(fn () => $this->redirect('/login'));
-
         if(isset($_POST['submit'])) {
             $id = $_POST['id'];
 
@@ -62,12 +79,27 @@ class PetController extends Controller {
     }
 
     public function create_specie() {
-        check_auth(fn () => $this->redirect('/login'));
+        
+        if(isset($_POST['submit'])) {
+            $specie = $_POST['specie'];
+            $note = $_POST['note'];
+
+            $fields = [
+                "specie" => $specie,
+                "note" => $note
+            ];
+
+            $pet_specie_model = new PetSpecie(self::$db);
+            $pet_specie_model->insert($fields);
+
+            $this->redirect('/pets');
+            exit;
+        }
+
         $this->view('pets/species/create.php');
     }
 
     public function edit_specie() {
-        check_auth(fn () => $this->redirect('/login'));
         $this->view('pets/species/create.php');
     }
 }

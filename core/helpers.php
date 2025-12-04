@@ -29,3 +29,9 @@ if(!function_exists('check_auth')) {
         }
     }
 }
+
+if(!function_exists('post')) {
+    function post($input) {
+        return $_POST[$input];
+    }
+}
