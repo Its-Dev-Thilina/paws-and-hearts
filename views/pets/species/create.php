@@ -8,7 +8,7 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Specie</label>
-                <input type="text" name="pet_name" id="" class="form-control" placeholder="Cat, Dog, Parrot">
+                <input type="text" name="specie" id="" class="form-control" placeholder="Cat, Dog, Parrot">
             </div>
 
             <div class="mb-3">
@@ -16,7 +16,7 @@
                 <textarea name="note" id="" rows="5" class="form-control" placeholder="Note about specie"></textarea>
             </div>
 
-            <input type="submit" value="Save" class="btn btn-primary">
+            <input type="submit" name="submit" value="Save" class="btn btn-primary">
         </form>
     </div>
 </div>

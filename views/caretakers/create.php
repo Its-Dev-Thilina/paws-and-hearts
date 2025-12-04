@@ -8,23 +8,31 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Full Name</label>
-                <input type="text" name="pet_name" id="" class="form-control" placeholder="e.g: Jone Doe">
+                <input type="text" name="name" id="" class="form-control" placeholder="e.g: Jone Doe">
             </div>
 
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Gender</label>
-                <div class="d-flex gap-2">
-                    <div class="form-check ms-2">
-                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Male
-                        </label>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                        <div class="d-flex gap-2">
+                            <div class="form-check ms-2">
+                                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check ms-2">
-                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Female
-                        </label>
+                    <div class="mb-3 col">
+                        <label for="exampleFormControlInput1" class="form-label">Email / Phone</label>
+                        <input type="text" name="contact" id="" class="form-control" placeholder="e.g: example@example.com / +00-000-000-000">
                     </div>
                 </div>
             </div>
@@ -38,7 +46,7 @@
 
                 <div class="col">
                     <label for="exampleFormControlInput1" class="form-label">Specialization</label>
-                    <select name="specialization" id="" class="form-control">
+                    <select name="special" id="" class="form-control">
                         <option value="*">There is No Specific</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -67,7 +75,7 @@
                 <textarea name="note" id="" rows="5" class="form-control" placeholder="e.g: I like to play with dogs and cats ..."></textarea>
             </div>
 
-            <input type="submit" value="Save" class="btn btn-primary">
+            <input type="submit" name="submit" value="Save" class="btn btn-primary">
         </form>
     </div>
 </div>

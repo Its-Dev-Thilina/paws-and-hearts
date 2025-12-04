@@ -13,7 +13,6 @@ class Controller {
     protected function view($path, $data = []) {
         extract($data);
         include_once BASE_PATH."views/$path";
-        exit;
     }
 
     protected function redirect($url) {
