@@ -22,4 +22,16 @@ class Adopter extends Model{
 
         return $data;
     }
+
+    public function get($fields) {
+        $data = [];
+
+        $query = "
+        SELECT $fields
+        FROM $this->table ";
+
+        $data = $this->db->get_connection()->query($query)->fetch_all(MYSQLI_ASSOC);
+
+        return $data;
+    }
 }

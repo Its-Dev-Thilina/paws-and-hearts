@@ -12,7 +12,9 @@ class Controller {
 
     protected function view($path, $data = []) {
         extract($data);
+        include_once BASE_PATH.'layout/header.php';
         include_once BASE_PATH."views/$path";
+        include_once BASE_PATH.'layout/footer.php';
     }
 
     protected function redirect($url) {
