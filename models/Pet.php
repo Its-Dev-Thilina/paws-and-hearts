@@ -27,4 +27,18 @@ class Pet extends Model{
 
         return $data;
     }
+
+    public function get_all_by_caretaker($id) {
+        $data = [];
+
+        $query = "
+            SELECT *
+            FROM $this->table
+            WHERE caretaker=$id
+        ";
+
+        $data = $this->db->get_connection()->query($query)->fetch_all(MYSQLI_ASSOC);
+
+        return $data;
+    }
 }

@@ -32,6 +32,12 @@ if(!function_exists('check_auth')) {
 
 if(!function_exists('post')) {
     function post($input) {
-        return $_POST[$input];
+        return $_POST[$input] ?? null;
+    }
+}
+
+if(!function_exists('has_set_value')) {
+    function has_set_value($value) {
+        return isset($value);
     }
 }

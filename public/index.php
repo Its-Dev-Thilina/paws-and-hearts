@@ -1,15 +1,11 @@
 <?php
 
-// Start PHP session and enable output buffering so controllers can redirect
-// (send headers) even if a layout or view starts outputting HTML early.
-// This prevents 'Cannot modify header information - headers already sent' warnings.
 session_start();
+
 ob_start();
 
 include_once __DIR__.'/../config.php';
 include_once BASE_PATH.'/core/helpers.php';
-
-include_once BASE_PATH.'layout/header.php';
 
 $request = trim($_SERVER['REQUEST_URI'], '/');
 $request = parse_url($request, PHP_URL_PATH);
@@ -23,7 +19,4 @@ if(key_exists($request, $routes)) {
     exit;
 }
 
-include_once BASE_PATH.'layout/footer.php';
-
-// Flush any buffered output to the client
 ob_end_flush();

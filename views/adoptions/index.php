@@ -11,26 +11,28 @@
                 <div class="mb-3 row">
                     <div class="col">
                         <label for="exampleFormControlInput1" class="form-label">Select Caretaker</label>
-                        <select name="species" id="" class="form-control">
-                            <option value="anna">Anna</option>
-                            <option value="yuki">Yuki</option>
-                            <option value="max">Max</option>
+                        <select name="species" id="caretakerDropdown" class="form-control">
+                            <option value="null" selected disabled>Select Caretaker</option>
+                            <?php foreach($caretakers as $caretaker): ?>
+                                <option value="<?=  $caretaker['id'] ?>"><?= $caretaker['name'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
 
                     <div class="col">
                         <label for="exampleFormControlInput1" class="form-label">Select Pet</label>
-                        <select name="breed" id="" class="form-control">
-                            <option value="lucky">Lucky</option>
-                            <option value="pinkey">Pinkey</option>
+                        <select name="breed" id="petDropdown" class="form-control">
+                            <option value="null" disabled selected>No Pets</option>
                         </select>
                     </div>
 
                     <div class="col">
                         <label for="exampleFormControlInput1" class="form-label">Select Adopter</label>
                         <select name="caretaker" id="" class="form-control">
-                            <option value="Mr. Sampson">Mr. Sampson</option>
-                            <option value="Jhon Doe">Jhon Doe</option>
+                            <option value="null" selected disabled>Select Adoptor</option>
+                            <?php foreach($adoptors as $adoptor): ?>
+                                <option value="<?=  $adoptor['id'] ?>"><?= $adoptor['name'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                 </div>
@@ -40,7 +42,7 @@
                 <textarea name="note" id="" rows="3" class="form-control" placeholder="e.g: She is Healthy and Fluffy as usual"></textarea>
             </div>
 
-                <input type="submit" value="Save" class="btn btn-primary">
+                <input type="submit" name="submit" value="Save" class="btn btn-primary">
             </form>
         </div>
 
@@ -86,3 +88,5 @@
         </div>
     </div>
 </div>
+
+<script src="assets/js/pages/adoption.js"></script>

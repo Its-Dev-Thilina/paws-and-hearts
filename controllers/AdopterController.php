@@ -20,7 +20,7 @@ class AdopterController extends Controller {
     public function create() {
         check_auth(fn () => $this->redirect('/login'));
 
-        if(post('submit') !== null) {
+        if(has_set_value(post('submit'))) {
             $name = post('name');
             $gender = post('gender');
             $dob = post('dob');
